@@ -11,7 +11,7 @@ import SiteHeader from './components/siteHeader'
 const App = () => {
   return (
     <BrowserRouter>
-              <SiteHeader />      {/* New Header  */}
+      <SiteHeader />      {/* New Header  */}
       <Routes>
         <Route path="/movies/favourites" element={<FavouriteMoviesPage/>}
         />
