@@ -1,4 +1,4 @@
-import React, {useState, useEffect}  from "react";
+import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
@@ -9,6 +9,9 @@ import TextField from "@material-ui/core/TextField";
 import SearchIcon from "@material-ui/icons/Search";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
+import { getGenres } from "../../api/tmdb-api";
+import { useQuery } from "react-query";
+import Spinner from '../spinner'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -25,37 +28,33 @@ const useStyles = makeStyles((theme) => ({
 
 export default function FilterMoviesCard(props) {
   const classes = useStyles();
-  const [genres, setGenres] = useState([{ id: '0', name: "All" }])
+  const { data, error, isLoading, isError } = useQuery("genres", getGenres);
 
-  useEffect(() => {
-    fetch(
-      "https://api.themoviedb.org/3/genre/movie/list?api_key=" +
-        process.env.REACT_APP_TMDB_KEY
-    )
-      .then(res => res.json())
-      .then(json => {
-        // console.log(json.genres) 
-        return json.genres
-      })
-      .then(apiGenres => {
-        setGenres([genres[0], ...apiGenres]);
-      });
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  
+  if (isLoading) {
+    return <Spinner />;
+  }
+
+  if (isError) {
+    return <h1>{error.message}</h1>;
+  }
+  const genres = data.genres;
+  if (genres[0].name !== "All"){
+    genres.unshift({ id: "0", name: "All" });
+  }
 
   const handleChange = (e, type, value) => {
-    e.preventDefault()
-    props.onUserInput(type, value)   // NEW
-  }
-
-  const handleTextChange = e => {
-    handleChange(e, "title", e.target.value)
-  }
-
-  const handleGenreChange = e => {
-    handleChange(e, "genre", e.target.value)
+    e.preventDefault();
+    props.onUserInput(type, value); // NEW
   };
 
+  const handleTextChange = (e, props) => {
+    handleChange(e, "name", e.target.value);
+  };
+
+  const handleGenreChange = (e) => {
+    handleChange(e, "genre", e.target.value);
+  };
 
   return (
     <>
