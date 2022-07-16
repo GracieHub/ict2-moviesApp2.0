@@ -5,12 +5,19 @@ export const MoviesContext = React.createContext(null);
 const MoviesContextProvider = (props) => {
   const [favourites, setFavourites] = useState([]);
   const [myReviews, setMyReviews] = useState({});
+  const [playlist, setPlaylist] = useState( [] )
 
   const addToFavourites = (movie) => {
     if (!favourites.includes(movie.id)) {
       let newFavourites = [...favourites, movie.id];
       setFavourites(newFavourites);
     }
+  };
+
+  const addToPlaylist = (movie) => {
+    setPlaylist([...playlist,movie.id]);    // Part 4, exercise 4, below is showing that its logging movie ids in current playlist
+    //console.log("in addToPlaylist")
+    //console.log(playlist) //playlist here is one addition behind
   };
 
   const addReview = (movie, review) => {
@@ -29,6 +36,8 @@ const MoviesContextProvider = (props) => {
         addToFavourites,
         removeFromFavourites,
         addReview,
+        playlist,
+        addToPlaylist,
       }}
     >
       {props.children}
