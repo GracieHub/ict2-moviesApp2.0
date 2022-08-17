@@ -5,6 +5,7 @@ import AddToPlaylistIcon from '../components/cardIcons/addToPlaylist' //added fo
 import { useQuery } from 'react-query'
 import Spinner from '../components/spinner'
 import { MoviesContext } from "../contexts/moviesContext"; //for exercise 4 to log playlist
+import AddToFavouritesIcon from "../components/cardIcons/addToFavourites";
 
 
 const UpcomingMoviesPage = (props) => {
