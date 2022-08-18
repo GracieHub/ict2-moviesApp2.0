@@ -5,7 +5,6 @@ import AddToPlaylistIcon from '../components/cardIcons/addToPlaylist' //added fo
 import { useQuery } from 'react-query'
 import Spinner from '../components/spinner'
 import { MoviesContext } from "../contexts/moviesContext"; //for exercise 4 to log playlist
-import AddToFavouritesIcon from "../components/cardIcons/addToFavourites";
 
 
 const UpcomingMoviesPage = (props) => {
@@ -22,16 +21,11 @@ const UpcomingMoviesPage = (props) => {
       return <h1>{error.message}</h1>
     }  
     const movies = data.results;
-    const favourites = movies.filter((m) => m.favourite);
-    localStorage.setItem("favourites", JSON.stringify(favourites));
-    
-    const addToFavourites = (movieId) => true 
 
   return (
     <PageTemplate
       title="Upcoming Movies"
       movies={movies}
-      selectFavourite={addToFavourites}
     // added as part of part 4, exercise 1
       action={(movie) => {
         return <AddToPlaylistIcon movie={movie} />  // updated to use playlsit part 4, exercise 2

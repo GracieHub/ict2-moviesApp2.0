@@ -1,9 +1,9 @@
 import React from "react";
 import PageTemplate from "../components/templateMovieListPage";
 import { useQuery } from 'react-query'
-import Spinner from '../components/spinner'
-import {getMovies} from '../api/tmdb-api'
-import AddToFavouritesIcon from '../components/cardIcons/addToFavourites'
+import Spinner from '../components/spinner';
+import {getMovies} from '../api/tmdb-api';
+import AddToFavouritesIcon from '../components/cardIcons/addToFavourites';
 
 
 const HomePage = (props) => {

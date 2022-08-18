@@ -82,3 +82,37 @@ export const getMovies = () => {
       }
       return response.json();
   };
+
+    //adding API to get Top Rated Movies
+    export const getTopRatedMovies = async () => {
+      const response = await fetch(
+        `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1`
+      );
+      if (!response.ok) {
+        throw new Error(response.json().message);
+      }
+      return response.json();
+    };
+  
+  
+    //adding API to get Popular Movies
+    export const getPopularMovies = async () => {
+      const response = await fetch(
+        `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1`
+      );
+      if (!response.ok) {
+        throw new Error(response.json().message);
+      }
+      return response.json();
+    };
+  
+    //adding API to get Cast
+    export const getCast = async (id) => {
+      const fetchResponse = await fetch(
+        `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${process.env.REACT_APP_TMDB_KEY}`
+      );
+      const res = await fetchResponse.json();
+      const json = res.cast;
+      return json;
+    };
+  
