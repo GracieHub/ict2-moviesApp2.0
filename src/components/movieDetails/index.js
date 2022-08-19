@@ -11,6 +11,11 @@ import NavigationIcon from "@material-ui/icons/Navigation";
 import Fab from "@material-ui/core/Fab";
 import Drawer from "@material-ui/core/Drawer";
 import MovieReviews from '../movieReviews'
+import GroupIcon from '@material-ui/icons/Group';
+import { Link } from "react-router-dom";
+import CastList from "../castList";
+import { Grid } from "@material-ui/core";
+
 
 const useStyles = makeStyles((theme) => ({
   chipRoot: {
@@ -42,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const MovieDetails = ( {movie}) => {
+const MovieDetails = ( { movie }) => {
   const classes = useStyles();
   const [drawerOpen, setDrawerOpen] = useState(false); // New
 
@@ -78,6 +83,12 @@ const MovieDetails = ( {movie}) => {
         />
         <Chip label={`Released: ${movie.release_date}`} />
       </Paper>
+      <Paper component="ul" className={classes.chipSet}>
+          <h2>Movie Cast</h2>
+          <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+            <CastList/>
+          </Grid>
+        </Paper>
       </div>
       {/* New */}
       <Fab    
