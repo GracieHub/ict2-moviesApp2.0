@@ -11,8 +11,6 @@ import NavigationIcon from "@material-ui/icons/Navigation";
 import Fab from "@material-ui/core/Fab";
 import Drawer from "@material-ui/core/Drawer";
 import MovieReviews from '../movieReviews'
-import GroupIcon from '@material-ui/icons/Group';
-import { Link } from "react-router-dom";
 import CastList from "../castList";
 import { Grid } from "@material-ui/core";
 
@@ -40,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
   chipLabel: {
     margin: theme.spacing(0.5),
   },
-  fab: {  //New
+  fab: {  
     position: "fixed",
     top: theme.spacing(15),
     right: theme.spacing(2),
@@ -88,7 +86,7 @@ const MovieDetails = ( { movie }) => {
           <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
             <CastList/>
           </Grid>
-        </Paper>
+      </Paper>
       </div>
       {/* New */}
       <Fab    
