@@ -48,7 +48,7 @@ export default function SimilarMovies({ itemData }) {
         variant="h5"
         component="h3"
         className={classes.similarMoviesTitle}>
-        <h2>Similar Movies</h2>
+        <h2>Similar movies you might also like..</h2>
       </Typography>
       <div className={classes.root}>
         <ImageList className={classes.imageList} cols={6}>

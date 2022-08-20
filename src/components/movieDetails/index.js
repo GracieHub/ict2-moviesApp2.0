@@ -6,13 +6,14 @@ import MonetizationIcon from "@material-ui/icons/MonetizationOn";
 import StarRate from "@material-ui/icons/StarRate";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
-// New
 import NavigationIcon from "@material-ui/icons/Navigation";
 import Fab from "@material-ui/core/Fab";
 import Drawer from "@material-ui/core/Drawer";
 import MovieReviews from '../movieReviews'
-import CastList from "../castList";
-import { Grid } from "@material-ui/core";
+import GroupIcon from '@material-ui/icons/Group';
+import { Link } from "react-router-dom";
+// import CastList from "../castList";
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -38,14 +39,14 @@ const useStyles = makeStyles((theme) => ({
   chipLabel: {
     margin: theme.spacing(0.5),
   },
-  fab: {  
+  fab: {  //New
     position: "fixed",
     top: theme.spacing(15),
     right: theme.spacing(2),
   },
 }));
 
-const MovieDetails = ( { movie }) => {
+const MovieDetails = ( {movie}) => {
   const classes = useStyles();
   const [drawerOpen, setDrawerOpen] = useState(false); // New
 
@@ -70,6 +71,9 @@ const MovieDetails = ( { movie }) => {
         ))}
       </Paper>
       <Paper component="ul" className={classes.chipSet}>
+      <Link to={`/movies/${movie.id}/cast`}>
+      <Chip icon={<GroupIcon />} label="Cast" color="secondary" />
+      </Link>
         <Chip icon={<AccessTimeIcon />} label={`${movie.runtime} min.`} />
         <Chip
           icon={<MonetizationIcon />}
@@ -80,12 +84,6 @@ const MovieDetails = ( { movie }) => {
           label={`${movie.vote_average} (${movie.vote_count}`}
         />
         <Chip label={`Released: ${movie.release_date}`} />
-      </Paper>
-      <Paper component="ul" className={classes.chipSet}>
-          <h2>Movie Cast</h2>
-          <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-            <CastList/>
-          </Grid>
       </Paper>
       </div>
       {/* New */}
