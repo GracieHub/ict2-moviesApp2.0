@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Header from "../headerMovieList";
-import FilterCard from "../filterMoviesCard";
+import HeaderTv from "../headerTvList";
+import FilterTvCard from "../filterTvCard";
 import Grid from "@material-ui/core/Grid";
 import Fab from "@material-ui/core/Fab";
 import Drawer from "@material-ui/core/Drawer";
@@ -45,7 +45,7 @@ function TvListPageTemplate({ tvShows, title, action }) {
     <>
     <Grid container className={classes.root}>
       <Grid item xs={12}>
-        <Header title={title} />
+        <HeaderTv title={title} />
       </Grid>
       <Grid item container spacing={5}>
         <TvShowList action={action} tvShows={displayedShows} />
@@ -64,7 +64,7 @@ function TvListPageTemplate({ tvShows, title, action }) {
         open={drawerOpen}
         onClose={() => setDrawerOpen(false)}
       >
-        <FilterCard
+        <FilterTvCard
           onUserInput={handleChange}
           titleFilter={titleFilter}
           genreFilter={genreFilter}

@@ -69,7 +69,6 @@ const MovieDetailsPage = (props) => {
               open={open}
             />
             </Grid>
-
           </PageTemplate>
         </>
       ) : (

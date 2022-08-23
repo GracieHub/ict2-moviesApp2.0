@@ -15,6 +15,8 @@ import { Link } from "react-router-dom";
 import Avatar from "@material-ui/core/Avatar";
 import { MoviesContext } from "../../contexts/moviesContext";
 import PlaylistAdd from "@material-ui/icons/PlaylistAdd";
+// import { useParams } from 'react-router-dom';
+
 
 
 const useStyles = makeStyles({

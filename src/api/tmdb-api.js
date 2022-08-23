@@ -44,6 +44,23 @@ export const getMovies = () => {
       throw error
    });
   };
+
+
+  export const getTvGenres = async () => {
+    return fetch(
+      "https://api.themoviedb.org/3/genre/tv/list?api_key=" +
+        process.env.REACT_APP_TMDB_KEY +
+        "&language=en-US"
+    ).then( (response) => {
+      if (!response.ok) {
+        throw new Error(response.json().message);
+      }
+      return response.json();
+    })
+    .catch((error) => {
+      throw error
+   });
+  };
   
   export const getMovieImages = ({ queryKey }) => {
     const [, idPart] = queryKey;
@@ -122,6 +139,18 @@ export const getMovies = () => {
         throw error
      });
     };
+
+    export const getTvCast = async (args) => {
+      const [prefix, { id }] = args.queryKey;
+      const response = await fetch(
+        `https://api.themoviedb.org/3/tv/${id}/credits?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1`
+      );
+      if (!response.ok) {
+        throw new Error(response.json().message);
+      }
+      return response.json();
+    };
+    
   
     export const getCastImage = async ( args ) => {
       console.log(args)
@@ -169,9 +198,9 @@ export const getPersonDetail = async (id) => {
   return response.json();
 };
     
-export const getTVseries = () => {
+export const getTvShows = () => {
   return fetch(
-    `https://api.themoviedb.org/3/tv/popular?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US`
+    `https://api.themoviedb.org/3/discover/tv/?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US`
   ).then((response) => {
     if (!response.ok) {
       throw new Error(response.json().message);
@@ -200,7 +229,7 @@ export const getTvImages = ({ queryKey }) => {
  });
 };
 
-export const getTVShow = (args) => {
+export const getTvShow = (args) => {
   const [, idPart] = args.queryKey;
   const { id } = idPart;
   return fetch(
@@ -215,4 +244,20 @@ export const getTVShow = (args) => {
     .catch((error) => {
       throw error;
     });
+  };
+
+  export const reviewContent = async (category, id, rating) => {
+    const response = await fetch(
+      `https://api.themoviedb.org/3/${category}/${id}/rating?api_key=${process.env.REACT_APP_TMDB_KEY}`,
+      {
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        method: "POST",
+        body: JSON.stringify({
+          value: rating,
+        }),
+      }
+    );
   };

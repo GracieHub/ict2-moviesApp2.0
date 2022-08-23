@@ -51,6 +51,7 @@ export default function CastList ({ actor, handleClickOpen }) {
   
   return (
   <>
+    
     {actor.cast.map((a) => (
     <Grid className= {classes.root} key={a.id} item xs={6} sm={5} md={4} lg={3} xl={2}>
         <Card className={classes.card}

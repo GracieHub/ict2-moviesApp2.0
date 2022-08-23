@@ -13,7 +13,7 @@ import StarRateIcon from "@material-ui/icons/StarRate";
 import Grid from "@material-ui/core/Grid";
 import { Link } from "react-router-dom";
 import Avatar from "@material-ui/core/Avatar";
-import { MoviesContext } from "../../contexts/moviesContext";
+import { TvShowsContext } from "../../contexts/tvShowsContext";
 
 
 const useStyles = makeStyles({
@@ -25,25 +25,27 @@ const useStyles = makeStyles({
 });
 
 export default function TvShowCard({ tvShow, action }) {
-  const classes = useStyles();
-  const { favourites } = useContext(MoviesContext);
-
-  if (favourites.find((id) => id === tvShow.id)) {
-    tvShow.favourite = true;
-  } else {
-    tvShow.favourite = false
-  }
-
+    const classes = useStyles();
+    const { favourites } = useContext(TvShowsContext);
+  
+    if (favourites.find((id) => id === tvShow.id)) {
+      tvShow.favourite = true;
+    } else {
+      tvShow.favourite = false
+    }
+  
   return (
     <Card className={classes.card}>
       <CardHeader
       className={classes.header}
       avatar={
-        tvShow.favourite ? (
+        <>
+        {tvShow.favourite ? (
           <Avatar className={classes.avatar}>
             <FavoriteIcon />
           </Avatar>
-        ) : null
+        ) : null }
+        </>
       }
       title={
         <Typography variant="h5" component="p">
@@ -77,7 +79,7 @@ export default function TvShowCard({ tvShow, action }) {
       </CardContent>
       <CardActions disableSpacing>
         {action(tvShow)}
-        <Link to={`/movies/${tvShow.id}`}>
+        <Link to={`/tv/${tvShow.id}`}>
           <Button variant="outlined" size="medium" color="primary">
             More Info ...
           </Button>

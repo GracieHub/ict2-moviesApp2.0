@@ -3,8 +3,9 @@ import MovieCard from "../components/movieCard";
 import SampleMovie from "./sampleData";
 import { MemoryRouter } from "react-router";
 import MoviesContextProvider from "../contexts/moviesContext";
-import { action } from "@storybook/addon-actions";
-import AddToFavoritesIcon from "../components/cardIcons/addToFavourites";
+
+//import { action } from "@storybook/addon-actions";
+import AddToFavouritesIcon from "../components/cardIcons/addToFavourites";
 
 export default {
   title: "Home Page/MovieCard",
@@ -19,7 +20,7 @@ export const Basic = () => {
   return (
     <MovieCard
       movie={SampleMovie}
-      action={(movie) => <AddToFavoritesIcon movie={movie} />}
+      action={(movie) => <AddToFavouritesIcon movie={movie} />}
       taging={(movie) => null}
     />
   );
@@ -31,7 +32,7 @@ export const Exceptional = () => {
   return (
     <MovieCard
       movie={sampleNoPoster}
-      action={(movie) => <AddToFavoritesIcon movie={movie} />}
+      action={(movie) => <AddToFavouritesIcon movie={movie} />}
       taging={(movie) => null}
     />
   );

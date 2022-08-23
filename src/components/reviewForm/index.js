@@ -6,10 +6,12 @@ import { makeStyles } from "@material-ui/core/styles";
 import Box from "@material-ui/core/Box";
 import { useForm } from "react-hook-form";
 import { MoviesContext } from "../../contexts/moviesContext";
+ import { TvShowsContext } from "../../contexts/tvShowsContext";
 import MenuItem from "@material-ui/core/MenuItem";
 import Snackbar from "@material-ui/core/Snackbar";
 import MuiAlert from "@material-ui/lab/Alert";
 import { useNavigate } from "react-router-dom";
+import { reviewContent } from "../../api/tmdb-api";
 
 const ratings = [
   {
@@ -61,13 +63,16 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ReviewForm = ({ movie }) => {
+const ReviewForm = ({ content, category }) => {
   const classes = useStyles();
   const { register, handleSubmit, errors, reset } = useForm();
-  const context = useContext(MoviesContext);
   const [rating, setRating] = useState(3);
   const [open, setOpen] = useState(false); //NEW
   const navigate = useNavigate();
+  
+  let contextType;
+  contextType = category === "movie" ? MoviesContext : TvShowsContext;
+  let context = useContext(contextType);
 
   const handleRatingChange = (event) => {
     setRating(event.target.value);
@@ -79,10 +84,12 @@ const ReviewForm = ({ movie }) => {
   };
 
   const onSubmit = (review) => {
-    review.movieId = movie.id;
+    review.categoryId = content.id;
     review.rating = rating;
+    review.category = category
     // console.log(review);
-    context.addReview(movie, review);
+    context.addReview(content, review);
+    reviewContent(category, content.id, rating);
     setOpen(true); // NEW
   };
 

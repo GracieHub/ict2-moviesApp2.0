@@ -218,7 +218,7 @@ export default function CastModal({ handleClose, actorDetail, open }) {
           </List>
         ) : (
             <Alert variant="outlined" severity="info">
-              No further information available for this cast member.
+              There is no information available for this Cast Member.
             </Alert>
         )}
         </DialogContent>
