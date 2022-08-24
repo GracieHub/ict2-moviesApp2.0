@@ -261,3 +261,14 @@ export const getTvShow = (args) => {
       }
     );
   };
+
+  export const getSimilarTvShows = async (args) => {
+    const [prefix, { id }] = args.queryKey;
+    const response = await fetch(
+      `https://api.themoviedb.org/3/tv/${id}/similar?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1`
+    );
+    if (!response.ok) {
+      throw new Error(response.json().message);
+    }
+    return response.json();
+  };

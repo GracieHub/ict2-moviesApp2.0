@@ -2,7 +2,6 @@ import React from "react";
 import Chip from "@material-ui/core/Chip";
 import Paper from "@material-ui/core/Paper";
 import { makeStyles } from "@material-ui/core/styles";
-import { Grid } from "@material-ui/core";
 import AccessTimeIcon from "@material-ui/icons/AccessTime";
 import Typography from "@material-ui/core/Typography";
 

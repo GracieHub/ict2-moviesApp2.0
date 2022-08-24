@@ -57,7 +57,7 @@ const MovieDetailsPage = (props) => {
         <>
           <PageTemplate movie={movie}>
             <MovieDetails movie={movie} />
-            <SimilarMovies itemData={similarMovies} />
+            <SimilarMovies itemData={similarMovies} category={"movie"} />
             <h2>Movie Cast</h2>
             <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
             <CastList 
