@@ -53,8 +53,7 @@ e.g.
 
 e.g.
 >Favourites Page
-![image]src/images/Favourties.png
-
+![][/repository/assets/employee.png?raw=true]
 
 
 ### Component catalogue.
