@@ -52,8 +52,8 @@ e.g.
 [ For each view in your app, show a screenshot and caption - only new/modified ones in the case of the Movies Fan app. If necessary, use multiple screenshots to cover a view's full capability.
 
 e.g.
->
-[image]src/images/Favourties.png
+>Favourites Page
+![image]src/images/Favourties.png
 
 
 
