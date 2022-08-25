@@ -24,7 +24,14 @@ const useStyles = makeStyles((theme) => ({
     minWidth: 220,
     backgroundColor: "rgb(255, 255, 255)",
   },
+  rating: {
+    margin: theme.spacing(1),
+    minWidth: 100,
+    backgroundColor: "rgb(255, 255, 255)",
+  },
 }));
+
+
 
 export default function FilterMoviesCard(props) {
   const classes = useStyles();
@@ -41,6 +48,16 @@ export default function FilterMoviesCard(props) {
   if (genres[0].name !== "All"){
     genres.unshift({ id: "0", name: "All" });
   }
+
+  const ratings = [0,1,2,3,4,5,6,7,8,9,10]
+
+  const handleMinRatingChange = (e) => {
+    handleChange(e, "minRating", e.target.value);
+  }
+
+  const handleMaxRatingChange = (e) => {
+    handleChange(e, "maxRating", e.target.value);
+  };
 
   const handleChange = (e, type, value) => {
     e.preventDefault();
@@ -90,6 +107,42 @@ export default function FilterMoviesCard(props) {
           </Select>
         </FormControl>
       </CardContent>
+      <CardContent>
+          <FormControl className={classes.rating}>
+            <InputLabel id="min-label">Min Rating</InputLabel>
+            <Select
+              labelId="min-label"
+              id="min-select"
+              value={props.minRatingFilter}
+              onChange={handleMinRatingChange}
+            >
+              {ratings.map((rating) => {
+                return (
+                  <MenuItem key={`min${rating} `} value={rating}>
+                    {rating}
+                  </MenuItem>
+                );
+              })}
+            </Select>
+          </FormControl>
+          <FormControl className={classes.rating}>
+            <InputLabel id="max-label">Max Rating</InputLabel>
+            <Select
+              labelId="max-label"
+              id="max-select"
+              value={props.maxRatingFilter}
+              onChange={handleMaxRatingChange}
+            >
+              {ratings.map((rating) => {
+                return (
+                  <MenuItem key={`max${rating}`} value={rating}>
+                    {rating}
+                  </MenuItem>
+                );
+              })}
+            </Select>
+          </FormControl>
+        </CardContent>
     </Card>
     <Card className={classes.root} variant="outlined">
         <CardContent>

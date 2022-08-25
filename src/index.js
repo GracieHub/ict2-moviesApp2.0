@@ -4,7 +4,6 @@ import { BrowserRouter, Route, Navigate, Routes } from "react-router-dom";
 import HomePage from "./pages/homePage";
 import MovieDetailsPage from "./pages/movieDetailsPage";
 import FavouriteMoviesPage from "./pages/favouriteMoviesPage"; 
-import FavouriteTvPage from "./pages/favouriteTvPage";
 import MovieReviewPage from "./pages/movieReviewPage";
 import SiteHeader from './components/siteHeader'
 import UpcomingMoviesPage from "./pages/upcomingMoviesPage";
@@ -45,7 +44,6 @@ const App = () => {
         <Route path="/movies/toprated" element={<TopRatedMoviesPage />} />
         <Route path="/movies/popular" element={<PopularMoviesPage />} />
         <Route path="/tv-series" element={<TvSeriesPage/>} />
-        <Route path="/tv/favourites" element={<FavouriteTvPage/>}/>
         <Route path="/tv/:id" element={<TvShowDetailsPage/>} />
         <Route path="/movies/:id" element={<MovieDetailsPage/>} />
         <Route path="/" element={<HomePage />} />

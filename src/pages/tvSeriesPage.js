@@ -3,7 +3,7 @@ import PageTemplate from "../components/templateTvListPage";
 import { useQuery } from 'react-query';
 import Spinner from '../components/spinner';
 import {getTvShows} from '../api/tmdb-api';
-import AddToFavouritesTvIcon from "../components/cardIcons/addToFavouritesTv";
+import AddToFavouritesIcon from "../components/cardIcons/addToFavourites";
 
 
 const TvSeriesPage = (props) => {
@@ -33,7 +33,7 @@ const TvSeriesPage = (props) => {
       title="Discover TV Shows"
       tvShows={tvShows}
       action={(tvShow) => {
-        return <AddToFavouritesTvIcon tvShow={tvShow} />
+        return <AddToFavouritesIcon tvShow={tvShow} />
       }}
     />
 );

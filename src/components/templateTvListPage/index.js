@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import HeaderTv from "../headerTvList";
+import Header from "../headerMovieList";
 import FilterTvCard from "../filterTvCard";
 import Grid from "@material-ui/core/Grid";
 import Fab from "@material-ui/core/Fab";
@@ -26,26 +26,43 @@ function TvListPageTemplate({ tvShows, title, action }) {
   const [titleFilter, setTitleFilter] = useState("");
   const [genreFilter, setGenreFilter] = useState("0");
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [minRatingFilter, setMinRatingFilter] = useState("0");
+  const [maxRatingFilter, setMaxRatingFilter] = useState("10");
 
   const genreId = Number(genreFilter);
+  const minRating = minRatingFilter;
+  const maxRating = maxRatingFilter;
   let displayedShows = tvShows
     .filter((t) => {
       return t.name.toLowerCase().search(titleFilter.toLowerCase()) !== -1;
     })
     .filter((t) => {
       return genreId > 0 ? t.genre_ids.includes(genreId) : true;
+    })
+    .filter((m) => {
+      return (
+        Number(m.vote_average) > minRating && Number(m.vote_average) < maxRating
+      );
     });
 
     const handleChange = (type, value) => {
-    if (type === "name") setTitleFilter(value);
-    else setGenreFilter(value);
+      if (type === "title") {
+        setTitleFilter(value);
+      } else if (type === "minRating") {
+        setMinRatingFilter(value);
+      } else if (type === "maxRating") {
+        setMaxRatingFilter(value);
+      } else {
+        setGenreFilter(value);
+  
+      }
   };
 
   return (
     <>
     <Grid container className={classes.root}>
       <Grid item xs={12}>
-        <HeaderTv title={title} />
+        <Header title={title} />
       </Grid>
       <Grid item container spacing={5}>
         <TvShowList action={action} tvShows={displayedShows} />
@@ -68,6 +85,8 @@ function TvListPageTemplate({ tvShows, title, action }) {
           onUserInput={handleChange}
           titleFilter={titleFilter}
           genreFilter={genreFilter}
+          minRatingFilter={minRatingFilter}
+          maxRatingFilter={maxRatingFilter}
         />
       </Drawer>
     </>    
