@@ -53,7 +53,8 @@ e.g.
 
 e.g.
 >Favourites Page
-![][/repository/assets/employee.png?raw=true]
+![][fav]
+
 
 
 ### Component catalogue.
@@ -61,7 +62,7 @@ e.g.
 [ Use the Storybook UI to highlight the new components for which you developed stories.]
 e.g.
 
-![][stories]
+![][rating]
 
 ## Caching.
 
@@ -73,7 +74,7 @@ e.g.
  + etc
 + etc
 
-![][caching]
+![][filtertv]
 
 ## Authentication (if relevant).
 
@@ -100,4 +101,9 @@ platform your app uses (e.g. TMDB lists, Firestore) and itemize the data it pers
 [filtertv]: ./public/FilterTVShow.png
 [rating]: ./public/MaxMinRating.png
 [moviedetails]: ./public/MovieDetails.png
-[Modal]: ./public/stories.png
+[popular]: ./public/Popular.png
+[popularcast]: ./public/PopularCast.png
+[toprated]: ./public/TopRated.png
+[tvseries]: ./public/TvSeries.png
+[upcoming]: ./public/upcoming.png
+
