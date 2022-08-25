@@ -48,6 +48,8 @@ const SiteHeader = () => {
     { label: "Popular", path: "/movies/popular" },
     { label: "Top Rated", path: "/movies/toprated" },
     { label: "TV Series", path: "/tv-series" },
+    { label: "Popular Cast", path: "/popularCast" },
+
   ];
 
   const handleMenuSelect = (pageURL) => {
