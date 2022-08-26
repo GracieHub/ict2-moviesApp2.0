@@ -27,12 +27,17 @@ atempted hyperlink from Popular cast page but not working.
 
 ## Setup requirements.
 
-- to Clone this repo. -Open it up in your IDE. -run npm install -sign up for a TMDB account, go to settings and an API key. Add this to a .env file which you will add to the base folder of the application. Set REACT_APP_TMDB_KEY= variable to this value. -run npm run start to run application on local host 3000 -run npm run storybook to run storybook on local host 6006
+- to Clone this repo. -Open it up in your IDE. 
+  npm installSetup requirements.
+- Node.js installed React installed Download repository
+- run npm install -sign up for a TMDB account,
+ - go to settings and an API key. 
+- Add this to a .env file which you will add to the base folder of the application. 
+ - Set REACT_APP_TMDB_KEY= variable to this value.
+  -run npm run start to run application on local host 3000 
+  -run npm run storybook to run storybook on local host 6006
 
-## App Design.
-
-
-### Routing/Navigation.
+## App Design  and  Routing/Navigation.
 
 [List the set of routes your app supports - only mention new instances if you expanded the Movies Fan app. State the view linked with each route.] 
 
