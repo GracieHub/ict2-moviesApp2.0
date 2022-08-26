@@ -52,11 +52,13 @@ e.g.
 ![][fav]
 >Favourites Page; lists favourites chosen from movie list page
 
-![][filtertv]
+![][filtertv] 
+>Here the user can filter the TV shows by Genre or Min/Max rating
+
 ![][filtermovie]
 >filter by genre or rating on all pages, here is example of tvSeries page filter  and movie page
 
-![][movidetails]
+![][moviedetails]
 >Detailed Movie page that shoes similar movies which has hyperlink to details page of that selected movie also.
 
 ![][upcoming]
