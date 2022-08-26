@@ -2,7 +2,7 @@ import React from "react";
 import TvShowCard from "../components/tvShowCard";
 import { sampleTV } from "./sampleData";
 import { MemoryRouter } from "react-router-dom";
-import AddToFavouritesTvIcon from "../components/cardIcons/addToFavouritesTv";
+import AddToFavouritesIcon from "../components/cardIcons/addToFavourites";
 import TvShowsContextProvider from "../contexts/tvShowsContext";
 
 export default {
@@ -11,7 +11,6 @@ export default {
     decorators: [
         (Story) => <MemoryRouter initialEntries={["/"]}>{Story()}</MemoryRouter>,
         (Story) => <TvShowsContextProvider>{Story()}</TvShowsContextProvider>,
-
       ],
 };
 
@@ -19,7 +18,7 @@ export const Basic = () => {
     return (
         <TvShowCard
         tvShow={(sampleTV)}
-        action={(tvShow) => <AddToFavouritesTvIcon tvShow={tvShow}/>}
+        action={(tvShow) => <AddToFavouritesIcon tvShow={tvShow}/>}
         taging={(tvShow) => null}
         />
     );

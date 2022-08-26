@@ -3,7 +3,6 @@ import CastList from "../components/castList";
 import SampleMovie from "./sampleDataCast";
 import { MemoryRouter } from "react-router";
 import MoviesContextProvider from "../contexts/moviesContext";
-import TvShowsContextProvider from "../contexts/tvShowsContext";
 
 export default {
   title: "Movie Details Page/CastList",
@@ -11,8 +10,6 @@ export default {
   decorators: [
     (Story) => <MemoryRouter initialEntries={["/"]}>{Story()}</MemoryRouter>,
     (Story) => <MoviesContextProvider>{Story()}</MoviesContextProvider>,
-    (Story) => <TvShowsContextProvider>{Story()}</TvShowsContextProvider>,
-
   ],
 };
 
